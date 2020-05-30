@@ -1,5 +1,5 @@
 var packet = require('dns-packet')
-var dgram = require('chrome-dgram')
+var dgram = require('dgram')
 var thunky = require('thunky')
 var events = require('events')
 var os = require('os')
@@ -22,14 +22,13 @@ module.exports = function (opts) {
     throw new Error('For IPv6 multicast you must specify `ip` and `interface`')
   }
 
-  var socket = opts.socket || dgram.createSocket(type)
-  /*{
+  var socket = opts.socket || dgram.createSocket({
     type: type,
     reuseAddr: opts.reuseAddr !== false,
     toString: function () {
       return type
     }
-  })*/
+  })
 
   socket.on('error', function (err) {
     if (err.code === 'EACCES' || err.code === 'EADDRINUSE') that.emit('error', err)
