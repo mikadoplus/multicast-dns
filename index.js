@@ -22,13 +22,14 @@ module.exports = function (opts) {
     throw new Error('For IPv6 multicast you must specify `ip` and `interface`')
   }
 
-  var socket = opts.socket || dgram.createSocket({
+  var socket = opts.socket || dgram.createSocket(type)
+  /*{
     type: type,
     reuseAddr: opts.reuseAddr !== false,
     toString: function () {
       return type
     }
-  })
+  })*/
 
   socket.on('error', function (err) {
     if (err.code === 'EACCES' || err.code === 'EADDRINUSE') that.emit('error', err)
