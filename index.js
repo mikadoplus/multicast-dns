@@ -1,5 +1,5 @@
 var packet = require('dns-packet')
-var dgram = require('chrome-dgram')
+var dgram = require('dgram')
 var thunky = require('thunky')
 var events = require('events')
 var os = require('os')
