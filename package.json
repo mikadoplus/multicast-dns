@@ -8,11 +8,11 @@
   },
   "bin": "cli.js",
   "dependencies": {
-    "dgram": "^1.0.1",
     "dns-packet": "^4.0.0",
     "thunky": "^1.0.2"
   },
   "devDependencies": {
+    "dgram-browserify": "0.0.13",
     "standard": "^10.0.3",
     "tape": "^4.8.0"
   },
